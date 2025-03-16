@@ -1,5 +1,5 @@
 # Node modules
-/node_modules/
+node_modules/
 # Fichiers d'environnement
 .env
 # Fichiers de configuration d'éditeur
