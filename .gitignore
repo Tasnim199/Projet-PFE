@@ -2,18 +2,3 @@
 node_modules/
 # Fichiers d'environnement
 .env
-# Fichiers de configuration d'éditeur
-.vscode/
-.idea/
-
-# Fichiers de log
-*.log
-# Dossiers de cache
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Dossier de test temporaire
-/coverage/
-# Système d'exploitation
-Thumbs.db
