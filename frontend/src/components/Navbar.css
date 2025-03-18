@@ -1,0 +1,85 @@
+/* Styles du Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #152c58;
+    color: white;
+    position: fixed; /* Garder le Navbar fixé en haut */
+    left: 250px; /* Démarrer après le sidebar qui a une largeur de 250px */
+    top: 0; /* Supprimer la marge en haut */
+    width: calc(100% - 250px); /* Prendre tout l'espace disponible à droite du Sidebar */
+    box-sizing: border-box;
+    z-index: 10; /* S'assurer que le Navbar soit au-dessus du contenu */
+  }
+  
+  .navbar-left input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1; /* Permet de faire prendre tout l'espace restant à la droite */
+  }
+  
+  .navbar-icon {
+    margin-right: 15px;
+    flex-shrink: 0; /* Empêche l'icône de se rétrécir */
+  }
+  
+  .bell-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .navbar-avatar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0; /* Empêche l'avatar de se rétrécir */
+  }
+  
+  .user-icon {
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+  
+  .admin-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .user-menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+  }
+  
+  .user-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .user-menu ul li {
+    padding: 8px 0;
+    cursor: pointer;
+  }
+  
+  .user-menu ul li:hover {
+    background-color: #f1f1f1;
+  }
+  

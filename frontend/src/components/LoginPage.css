@@ -1,0 +1,69 @@
+/* Page de connexion avec un fond bleu dégradé */
+.login-page {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6fa3ef, #b3d4fc); /* Bleu clair dégradé */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+}
+
+/* Box de connexion */
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: left;
+}
+
+/* Titre de la page de login */
+h2 {
+    text-align: center;
+    color: #2a5298;
+    font-size: 24px;
+}
+
+/* Label de chaque champ */
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Champs de texte (Email, Mot de passe) */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Apparence du placeholder */
+input::placeholder {
+    color: #aaa;
+}
+
+/* Style du bouton */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a5298;  /* Couleur du bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Effet de survol sur le bouton */
+button:hover {
+    background-color: #1e3c72;
+}

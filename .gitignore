@@ -2,3 +2,5 @@
 node_modules/
 # Fichiers d'environnement
 .env
+# Ignorer le dossier uploads
+uploads/
