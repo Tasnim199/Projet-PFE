@@ -1,216 +1,85 @@
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  background-color: #152c58;
-  color: white;
-  padding-top: 0px;  /* Retirer la marge en haut */
-  margin: 0;         /* Retirer la marge globale de la sidebar */
+:root {
+  --sidebar-width: 250px;
+  --sidebar-bg: #ffffff;
+  --link-color: #b0b0b0;
+  --link-hover-color: #ffffff;
+  --accent: #f8781d;
+  --shadow: rgba(0,0,0,0.08);
+  --radius: 16px;
+  --font: 'Poppins', sans-serif;
+  --navbar-height: 64px; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+
+.admin-sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
   position: fixed;
-  height: 100vh;
+  top: var(--navbar-height); /* Place la sidebar juste sous le navbar */
+  left: 20px; /* Ajoute une marge à gauche de 20px */
+  height: calc(100vh - var(--navbar-height) - 20px); /* Ajuste la hauteur du sidebar pour laisser de la marge en bas */
+  box-shadow: 2px 4px 10px var(--shadow);
+  z-index: 900;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  top: 0;            /* Assurer que la sidebar commence au tout début de la page */
-  left: 0;           /* Assurer que la sidebar commence au bord gauche */
+  border-radius: var(--radius); /* Arrondi des 4 coins */
 }
 
-/* Titre de la sidebar */
-.sidebar-header {
+.admin-sidebar-header {
+  padding: 0 20px;
   text-align: center;
-  margin-bottom: 0;  /* Enlever la marge en bas du header */
-  padding: 10px;
+  margin-bottom: 30px;
 }
 
-.sidebar-header h2 {
-  color: white;
-  font-size: 1.5rem;
+.admin-sidebar-header h2 {
+  color: var(--accent);
+  font-size: 1.6rem;
 }
 
-/* Liste de navigation */
-.sidebar-nav ul {
+.admin-sidebar-nav ul {
   list-style: none;
   padding: 0;
-  margin: 0; /* Retirer les marges dans la liste */
+  margin: 0;
 }
 
-.sidebar-nav ul li {
-  margin: 0;  /* Retirer la marge des éléments de la liste */
+.admin-sidebar-nav li {
+  margin-bottom: 16px; /* plus espacé */
 }
 
-/* Liens dans la sidebar */
-.sidebar-link {
-  display: block;
-  color: white;
+.admin-sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  color: var(--link-color);
+  font-size: 1rem;
   text-decoration: none;
-  font-size: 1.1rem;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-/* Hover sur les liens */
-.sidebar-link:hover {
-  background-color: #809ccd;
-}
-
-/* Lien actif */
-.sidebar-link.active {
-  background-color: #1d2d44;
-}
-/* Container principal */
-.dashboard-container {
-  display: flex;
-  flex-grow: 1;
-  padding: 30px 20px;
-  margin-left: 250px; /* Largeur de la sidebar */
-  flex-direction: column;
-}
-
-/* Contenu du tableau de bord */
-.dashboard-content {
-  flex-grow: 1;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Titre du dashboard */
-.dashboard-header {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #2c3e50;
-}
-
-/* Carte de statistiques */
-.dashboard-cards {
-  display: flex;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Carte adaptable */
-  gap: 20px;
-  margin-bottom: 40px;
-    width: 100%; /* S'assurer que le conteneur prend toute la largeur disponible */
-  padding: 0 400px;; /* Centrer les cartes */
-}
-
-.dashboard-card {
-  background-color: #ecf0f1;
-  margin-top: 50px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre douce */
-  text-align: center;
-  border: 2px solid transparent; /* Bordure transparente */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Effet de transition */
-}
-
-.dashboard-card:hover {
-  transform: translateY(-10px); /* Décalage vers le haut lors du hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
-}
-
-.dashboard-card h4 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.dashboard-card .value {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #16a085;
-}
-
-
-/* Graphiques */
-.chart-container {
-  margin-top: 30px;
-}
-
-.chart h3 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #34495e;
-}
-
-.chart {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  height: 400px;
-}
-
-.chart canvas {
-  max-width: 100%;
-  height: auto;
-}
-/* Styles pour la page Teachers */
-.teachers-page {
-  display: flex; /* Utilisation de flexbox */
-  flex-direction: row; /* Positionner Sidebar et contenu à côté */
-  min-height: 100vh; /* Assurer que la page occupe toute la hauteur */
-  padding: 0;
-}
-
-/* Style pour le Sidebar, pour éviter qu'il chevauche le contenu */
-.sidebar {
-  width: 250px; /* Taille du Sidebar */
-  height: 100vh; /* Prendre toute la hauteur */
-  position: fixed; /* Position fixe à gauche */
-  top: 0;
-  left: 0;
-}
-
-/* Conteneur du contenu de la page Teachers */
-.teachers-content {
-  margin-top: 20px;
-  margin-left: 250px; /* Décaler le contenu à droite pour laisser de l'espace au Sidebar */
-  padding: 20px;
-  width: calc(100% - 250px); /* S'assurer que la largeur du contenu est correcte */
-  box-sizing: border-box; /* Inclure padding dans la largeur */
-  text-align: center;
-}
-
-/* Ajouter du style pour la table */
-.teachers-content table {
+  border-radius: 0;
+  transition: background-color 0.3s, color 0.3s;
   width: 100%;
-  border-collapse: collapse;
 }
 
-.teachers-content th, .teachers-content td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
+.admin-sidebar-link:hover {
+  background-color: var(--accent);
+  color: var(--link-hover-color);
 }
 
-.teachers-content th {
-  background-color: #f4f4f4;
+.admin-sidebar-link.active {
+  background: var(--accent);
+  color: #ffffff;
 }
 
-.teachers-content button {
-  background-color: #4CAF50; /* Vert */
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.teachers-content button:hover {
-  background-color: #45a049;
-}
-
-/* Responsive pour mobiles */
-@media (max-width: 768px) {
-  .dashboard-container {
-    flex-direction: column;
-  }
-
-  .dashboard-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-content {
-    margin-left: 0;
-  }
+/* Pour icône SVG */
+.admin-sidebar-link svg {
+  margin-right: 12px;
+  font-size: 1.3rem;
 }

@@ -1,0 +1,90 @@
+/* src/components/ManageDocuments.css (ou autre nom) */
+
+/* Nouveau wrapper spécifique à cette page */
+.consult-docs-wrapper {
+  padding: 2rem;
+  background: #d7f4d2;
+}
+
+/* Titre */
+.consult-docs-wrapper .section-title {
+  font-size: 1.8rem;
+  color: #030535;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid #121889;
+  padding-bottom: 0.5rem;
+  font-weight: bold; /* titre plus gras */
+}
+
+/* Liste des documents */
+.docs-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Carte document */
+.doc-item {
+  background: #ffffff;
+  border: 2px solid #121889;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(18, 24, 137, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doc-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(18, 24, 137, 0.2);
+}
+
+/* Titre de chaque document en gras */
+.doc-item h4 {
+  font-size: 1.2rem;
+  color: #121889;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* Texte descriptif */
+.doc-item p {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 4px 0;
+}
+
+/* Bouton personnalisé vert vif */
+.btn.btn-consult {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #38b000 !important;    /* Vert vif */
+  background-image: none !important;        /* Annule le dégradé par défaut */
+  border: none !important;
+  border-radius: 20px;
+  font-weight: bold;
+  padding: 8px 16px;
+  color: #fff !important;
+  box-shadow: 0 4px 6px rgba(56, 176, 0, 0.4);
+  transition: background-color 0.3s ease,
+              transform 0.2s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Hover du bouton : vert un peu plus sombre */
+.btn.btn-consult:hover {
+  background-color: #2f9400 !important;    /* Vert sombre */
+  box-shadow: 0 6px 8px rgba(47, 148, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Si tu utilises aussi 'action-btn' sur ces boutons, renforce aussi : */
+.action-btn.btn-consult {
+  background-image: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .docs-list {
+    grid-template-columns: 1fr;
+  }
+}

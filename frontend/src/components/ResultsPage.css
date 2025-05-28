@@ -1,0 +1,126 @@
+.results-page {
+  max-width: 900px;
+  margin: 2rem auto;
+  margin-left: 350px;
+  padding: 2rem;
+  background: white;
+  border: 2px solid #f5c518;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  color: #111;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.results-page h2 {
+  margin-bottom: 30px;
+  color: #333;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.results-list li {
+  background: #ffe5b4;
+  margin: 12px 0;
+  padding: 16px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  font-size: 16px;
+  color: #222;
+  border: 1px solid #f0c27b;
+}
+
+.results-list li:hover {
+  background: #ffd8a8;
+  transform: scale(1.01);
+}
+
+/* SweetAlert2 Custom Styling */
+.swal-wide {
+  /* rien de spécial, width défini directement dans JS */
+}
+
+/* Espace entre Précédent et Suivant */
+.swal2-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+/* Questions */
+.carousel-question {
+  text-align: center;
+}
+
+.carousel-question h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.carousel-question .question-text {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  white-space: nowrap; /* force sur une ligne */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carousel-options {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-options li {
+  padding: 10px 20px;
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 80%;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* bonne réponse = vert */
+.carousel-options li.correct {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* toutes les mauvaises réponses = rouge */
+.carousel-options li.wrong {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* réponse sélectionnée = bordure grainée violette */
+.carousel-options li.selected {
+  border: 2px dashed black;
+  font-weight: bold;
+}
+.swal-btn {
+  background-color: #f5c518;       /* même jaune pâle */
+  color: #111;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+.swal-btn:hover {
+  background-color: #e0b514;
+}

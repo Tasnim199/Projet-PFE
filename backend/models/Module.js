@@ -1,17 +1,9 @@
 import mongoose from 'mongoose';
 
 const moduleSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    description: {
-        type: String,
-        required: true,
-    },
-    created_at: {
-        type: Date,
-        default: Date.now,
-    },
+    level: { type: String, required: true },  // "Niveau" -> "level"
+    number: { type: Number, required: true }, // "Numéro" -> "number"
+    name: { type: String, required: true }    // "Libellé" -> "name"
 });
+
 export default mongoose.model('Module', moduleSchema);

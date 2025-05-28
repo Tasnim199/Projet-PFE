@@ -1,0 +1,110 @@
+/* src/components/AddExercise.css */
+
+/* conteneur global (sous navbar et à droite du sidebar) */
+.teacher-page-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #d7f4d2;
+  }
+  
+  /* zone centrale de contenu */
+  .teacher-content {
+    margin: 84px auto 20px;   /* top = 84px, left/right = auto, bottom = 20px */
+    max-width: 1000px;    /* espace pour la sidebar */
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  
+  /* titre de page */
+  .teacher-content h1 {
+    font-size: 2rem;
+    color: #1d3557;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 3px solid #121889;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* formulaire */
+  .teacher-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* labels et selects/inputs */
+  .teacher-content label {
+    font-weight: 600;
+    color: #030535;
+  }
+  
+  .teacher-content select,
+  .teacher-content input,
+  .teacher-content textarea {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* zone questions */
+  .teacher-content textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+  
+  /* bouton d’envoi */
+  .teacher-content .btn-add-exo {
+    align-self: flex-start;
+    padding: 0.8rem 1.6rem;
+    background-color: #38b000;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  
+  .teacher-content .btn-add-exo:hover {
+    background-color: #65bb3d;
+    transform: translateY(-2px);
+  }
+  
+  /* conteneur questions */
+  .question-block {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  /* toast position correction */
+  .Toastify__toast-container {
+    font-size: 0.9rem;
+  }
+  
+  /* responsive */
+  @media (max-width: 768px) {
+    .teacher-content {
+      margin-left: 1rem;
+      margin-top: 64px;
+      padding: 1rem;
+    }
+  }
+  .correct-answer {
+    background-color: #84cd95; /* vert clair */
+    border: 1px solid #c3e6cb;
+  }
+  
+  .incorrect-answer {
+    background-color: #f8d7da; /* rouge clair */
+    border: 1px solid #f5c6cb;
+  }

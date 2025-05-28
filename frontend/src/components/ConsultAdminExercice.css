@@ -1,0 +1,110 @@
+/* src/components/ConsultAdminExercice.css */
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html, body {
+  height: 100%;
+  background: #fdf1e7;
+}
+.admin-page-container {
+  display: flex;
+}
+.admin-content {
+  flex: 1;
+  margin-left: 260px;      /* espace pour le Sidebar */
+  margin-top: 70px;
+  padding: 1rem 2rem;
+  background: #fdf1e7;
+}
+.consult-admin-exercises .section-title {
+  color: #f8781d;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 1rem;
+}
+/* Table moderne inspirée de teachers-content */
+.exercises-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+.exercises-table th,
+.exercises-table td {
+  padding: 15px 20px;
+  text-align: left;
+  color: #1f2937;
+  border-bottom: 2px solid rgba(255, 146, 68, 0.4);
+  border-right: 2px solid rgba(255, 146, 68, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.exercises-table thead th {
+  background: linear-gradient(to right, #ff9244, #ffa75e);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.exercises-table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.03);
+}
+.exercises-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+}
+.exercises-table th:first-child {
+  border-top-left-radius: 16px;
+}
+.exercises-table th:last-child {
+  border-top-right-radius: 16px;
+}
+.exercises-table td:first-child {
+  border-bottom-left-radius: 16px;
+}
+.exercises-table td:last-child {
+  border-bottom-right-radius: 16px;
+}
+/* Bouton Consulter */
+.btn-19 {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ef8030, #ffb366);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.btn-19:hover {
+  transform: scale(1.05);
+  
+}
+/* Modal styling (hérité du wrapper) */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.modal-body {
+  margin-top: 1rem;
+}
+.question-block {
+  margin-bottom: 1rem;
+}
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}

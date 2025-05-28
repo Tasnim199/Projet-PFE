@@ -1,0 +1,82 @@
+/* src/components/ManageDocuments.css */
+
+.teacher-page-container {
+    display: flex;
+  }
+  
+  .teacher-content {
+    flex: 1;
+    padding: 20px;
+    margin-right: 120px;
+  }
+  
+  .section-title {
+    margin-bottom: 20px;
+  }
+  
+  /* Grid pour aligner les cartes */
+  .docs-grid {
+    display: grid;
+    gap: 20px;
+  }
+  
+  /* Carte document */
+  .doc-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #38b000;        /* Vert vif */
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(56, 176, 0, 0.5); /* Lueur verte “métallisée” */
+    background: #fff;
+  }
+  
+  /* Infos à gauche */
+  .doc-info {
+    flex: 1;
+  }
+  
+  /* Titre du document en gras */
+  .doc-info h4 {
+    font-weight: bold;
+  }
+  
+  /* Actions (boutons) à droite */
+  .doc-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    margin-left: 20px;
+  }
+  
+  /* Boutons bleu marine “métallisé” */
+  .action-btn {
+    background: linear-gradient(135deg, #1f4772, #1b3970);
+    border: none;
+    color: #E0E1DD;
+    font-weight: 500;
+    box-shadow: 0 0 8px rgba(11,17,29,0.6);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  }
+  
+  /* Hover : dégradé bleu acier + légère translation */
+  .action-btn:hover {
+    background: linear-gradient(135deg, #415A77, #778DA9);
+    box-shadow: 0 0 8px rgba(65, 90, 119, 0.6);
+    transform: translateY(-2px);}
+  
+  /* Pour responsive */
+  @media (max-width: 768px) {
+    .doc-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .doc-actions {
+      flex-direction: row;
+      margin-left: 0;
+      margin-top: 12px;
+    }
+  }
+  

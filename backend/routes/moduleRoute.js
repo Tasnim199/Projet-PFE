@@ -1,43 +1,71 @@
 import express from 'express';
-import Module from '../models/Module.js';
-
+import Module from '../models/Module.js';  // Importer le modèle de Module
 const router = express.Router();
+router.use(express.json());
+// Route pour ajouter un module
 
-// Ajouter un module
-router.post('/add', async (req, res) => {
+router.post('/modules', async (req, res) => {
     try {
-        const { name, description } = req.body;
-        const module = new Module({ name, description });
-        await module.save();
-        res.status(201).json(module);
+        const { level, number, name } = req.body; // Assurez-vous que les noms correspondent au schéma
+
+        const newModule = new Module({ level, number, name });
+
+        await newModule.save();
+        res.status(201).json(newModule);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        console.error(error);
+        res.status(500).json({ message: "Erreur lors de l'ajout du module" });
+    }
+})
+// Route pour récupérer tous les modules
+router.get('/modules', async (req, res) => {
+    try {
+        const modules = await Module.find();  // Récupérer tous les modules
+        res.status(200).json(modules);        // Répondre avec la liste des modules
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erreur lors de la récupération des modules' });
     }
 });
-
-// Modifier un module
-router.put('/edit/:id', async (req, res) => {
+// Exemple dans module.routes.js
+router.get('/modules/level/:levelName', async (req, res) => {
     try {
-        const { name, description } = req.body;
-        const module = await Module.findByIdAndUpdate(
+      const modules = await Module.find({ level: req.params.levelName });
+      res.json(modules);
+    } catch (err) {
+      res.status(500).json({ message: 'erreur' });
+    }
+  });
+  
+// Route pour modifier un module
+router.put('/modules/:id', async (req, res) => {
+    try {
+        const { name, number, level } = req.body;
+
+        // Mettre à jour le module avec l'ID spécifié
+        const updatedModule = await Module.findByIdAndUpdate(
             req.params.id,
-            { name, description },
-            { new: true }
+            { name, number, level },
+            { new: true }  // Renvoyer le module mis à jour
         );
-        res.json(module);
+
+        res.status(200).json(updatedModule);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        console.error(error);
+        res.status(500).json({ message: 'Erreur lors de la modification du module' });
+    }
+});
+// Route pour supprimer un module
+router.delete('/modules/:id', async (req, res) => {
+    try {
+        await Module.findByIdAndDelete(req.params.id);
+        res.status(200).json({ message: 'Module supprimé avec succès' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erreur lors de la suppression du module' });
     }
 });
 
-// Supprimer un module
-router.delete('/delete/:id', async (req, res) => {
-    try {
-        const module = await Module.findByIdAndDelete(req.params.id);
-        res.json({ message: 'Module deleted', module });
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-});
+
 
 export default router;

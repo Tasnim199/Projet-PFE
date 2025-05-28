@@ -1,0 +1,156 @@
+/* src/components/TeacherMenu.css */
+
+/* disposition générale */
+.teacher-teacher-page-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #d7f4d2; /* vert pastel vif */
+}
+
+/* contenu principal, décale sous navbar et à droite du sidebar */
+.teacher-teacher-content {
+    flex: 1 0 auto;
+  margin-left: 270px;   /* 250px sidebar + 20px gap */
+  margin-top: 84px;     /* 64px navbar + 20px gap */
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+/* === bandeau d’actions === */
+.teach-action-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;    /* vertical layout */
+  align-items: center;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.teach-action-text {
+  font-size: 1.25rem;
+  color: #1d3557;     /* bleu marine */
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 24px;  /* space under phrase */
+  font-style: italic;
+}
+.teach-action-buttons {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  max-width: 500px;
+}
+.teach-action-buttons .btn-add {
+  appearance: button;
+  background-color:#38b000;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin-top: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s, background-color .2s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  flex: 1;               /* equal width */
+  position: relative;
+}
+.teach-action-buttons .btn-add:after {
+  background-clip: padding-box;
+  background-color:#72c44b;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.teach-action-buttons .btn-add:hover:not(:disabled) {
+  filter: brightness(1.1);
+  background-color: #65bb3d;
+}
+.teach-action-buttons .btn-add:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+/* === carte de statistiques === */
+.teach-stats-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+.stats-title {
+  margin: 0 0 24px;
+  color: #1d3557;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.stats-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stat-item {
+  flex: 1 1 180px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  transition: border 0.3s, transform 0.3s;
+}
+.stat-item:hover {
+  border: 2px solid #38b000; /* vert vif métallisé */
+  transform: translateY(-4px);
+}
+.stat-value {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #66bb6a;
+}
+.stat-label {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #1d3557;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+  }
+  .action-buttons .btn-add {
+    max-width: none;
+    width: 100%;
+  }
+  .stats-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}

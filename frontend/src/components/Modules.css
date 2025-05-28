@@ -1,66 +1,314 @@
-/* Modules.css */
+/* Modules.css : Styling spécifique au composant Modules */
 
-/* Style global pour le body et la page */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-/* Style pour le layout avec Sidebar et contenu */
-.main-content {
-    margin-left: 250px;  /* Largeur de la sidebar */
-    padding: 20px;
-    width: calc(100% - 250px); /* Ajuste la largeur du contenu */
-    box-sizing: border-box;
+/* =========================
+   Variables
+========================= */
+:root {
+    --sidebar-width: 250px;
+    --page-bg: #fdf1e7;
+    --card-bg: #fdf1e7;
+    --card-width: min(90%, 1400px);
+    --card-gap: 2rem;
+    --card-padding: 1.5rem;
+    --card-min-height: 300px;
+  
+    --accent-primary-start: #66bb6a;
+    --accent-primary-end: #43a047;
+    --accent-secondary-start: #ffa726;
+    --accent-secondary-end: #fb8c00;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+  
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-dark: rgba(0,0,0,0.1);
+    --radius: 12px;
+    --font: 'Poppins', sans-serif;
+  }
+  
+  /* =========================
+     Reset & Base
+  ========================= */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; background: var(--page-bg); font-family: var(--font); color: var(--text-primary); }
+  a { text-decoration: none; color: inherit; }
+  
+  /* =========================
+     Main Layout
+  ========================= */
+  .main-content {
+    margin: 0 auto;
+    padding: 2rem;
+    padding-left: calc(var(--sidebar-width) + 2rem);
+    max-width: 1200px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    min-height: 100vh; /* Assure que la page occupe toute la hauteur */
-    overflow-y: auto;
-    background-color: #fff; /* Optionnel : changez le fond si nécessaire */
+    align-items: center;
+  }
+  
+  h3 {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  
+  /* Bouton "Ajouter Module" */
+  .main-content > button {
+    align-self: flex-start;
+    background: linear-gradient(45deg, var(--accent-secondary-start), var(--accent-secondary-end));
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-bottom: 2rem;
+  }
+  .main-content > button:hover { opacity: 0.9; }
+  
+  /* =========================
+     Notification Popup
+  ========================= */
+  .notification-popup {
+    background: #ffefc5;
+    border: 1px solid #f5c242;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 800px;
+    border-radius: var(--radius);
+    color: #5a4500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* =========================
+     Cards Container
+  ========================= */
+  .modules-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--card-gap);
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    justify-content: center;
+  }
+  
+  /* =========================
+     Card - Level Section
+  ========================= */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 12px var(--shadow-light);
+    padding: var(--card-padding);
+    min-height: var(--card-min-height);
+    flex: 1 1 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px var(--shadow-light);
+  }
+  
+  /* Niveau Title */
+  .card h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Liste des modules */
+  .card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* =========================
+     Module Item
+  ========================= */
+  .card ul li {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: calc(var(--radius) - 4px);
+    box-shadow: 0 1px 4px var(--shadow-light);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s ease;
+  }
+  
+  .card ul li:hover {
+    background: rgba(245, 245, 245, 1);
+  }
+  
+  /* Info Module : Numéro + Nom */
+  .module-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .module-number {
+    background: linear-gradient(45deg, var(--accent-primary-start), var(--accent-primary-end));
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    
+    border-radius: var(--radius);
+    font-size: 1rem;
+     display: inline-block;      /* pour pouvoir ajuster sa largeur */
+  min-width: 2.5rem;          /* adapte cette valeur selon la longueur max (ici 2.5rem = 40px) */
+  text-align: center;         /* centre le contenu */
+  white-space: nowrap; 
+  }
+  
+  /* =========================
+     Buttons Modifier / Supprimer
+  ========================= */
+  .module-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .module-buttons button {
+    background: linear-gradient(45deg, var(--accent-secondary-start), var(--accent-secondary-end));
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .module-buttons button:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* =========================
+     Popup (Ajout / Modification)
+  ========================= */
+ /* =========================
+   Popup (Ajout / Modification) - Style Amélioré
+========================= */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;  /* ← ajoute cette ligne */
+    bottom: 0; /* ← ajoute cette ligne */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
 }
 
-/* Styles pour les titres et autres éléments */
-h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    color: #333;
+.popup {
+    background: var(--card-bg); /* Harmonise avec ta page */
+    padding: 2rem;
+    border-radius: var(--radius);
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 20px var(--shadow-dark);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
+.popup h2, .popup h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+.popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.popup input, .popup select, .popup textarea {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background: #fff;
+    transition: border 0.3s ease;
+}
+
+.popup input:focus, .popup select:focus, .popup textarea:focus {
+    border-color: var(--accent-primary-start);
+    outline: none;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.popup-buttons button {
+    flex: 1;
+    background: linear-gradient(45deg, var(--accent-primary-start), var(--accent-primary-end));
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--radius);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 16px;
-    margin: 10px 0;
-    width: 50%; /* S'assure que les boutons occupent toute la largeur */
+    transition: transform 0.2s ease, background 0.3s ease;
 }
 
-button:hover {
-    background-color: #45a049;
+.popup-buttons button.cancel-btn {
+    background: linear-gradient(45deg, var(--accent-secondary-start), var(--accent-secondary-end));
 }
 
-ul {
-    list-style-type: none;
-    padding-left: 0;
+.popup-buttons button:hover {
+    transform: translateY(-3px);
+}
+.modal-footer .btn {
+  /* un peu d’espace horizontal entre chaque bouton */
+  margin: 0 8px;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-li {
-    margin: 10px 0;
-    font-size: 18px;
-}
-
-li button {
-    background-color: #7ca5e2;
-}
-
-li button:hover {
-    background-color: #7ca5e2;
-}
+  
+  @media (max-width: 768px) {
+    .main-content { padding: 1rem; }
+    .modules-cards { gap: 1.5rem; }
+    .card { padding: 1rem; }
+  }
+  

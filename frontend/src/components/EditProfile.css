@@ -1,0 +1,129 @@
+/* Background global de la page */
+body {
+  background-color: #fdf1e7;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Conteneur principal du formulaire */
+.edit-profile-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  border: 2px solid #ff6f00;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* ombre plus marquée */
+  transform: translateY(-10px); /* effet flottant */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Petit effet au survol (optionnel, mais sympa) */
+.edit-profile-container:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+}
+/* Titre */
+.edit-profile-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 24px;
+}
+
+/* Formulaire */
+.edit-profile-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Label des champs */
+.edit-profile-container label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  color: #444;
+}
+
+/* Champs */
+.edit-profile-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-size: 15px;
+}
+
+.edit-profile-container input:focus {
+  border-color: #ff6f00;
+}
+
+.edit-profile-container input:disabled {
+  background-color: #f4f4f4;
+  color: #999;
+}
+
+/* Bouton style button-19 */
+.button-19 {
+  appearance: button;
+  background-color: #ff6f00;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin-top: 10px;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s, background-color .2s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #ffa94d;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+  background-color: #e65c00;
+}
+
+.button-19:disabled {
+  cursor: auto;
+}
+
+.button-19:active {
+  border-width: 4px 0 0;
+  background: none;
+}

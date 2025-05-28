@@ -1,85 +1,203 @@
-/* Styles du Navbar */
+:root {
+  --navbar-height: 64px;
+  --sidebar-width: 250px;
+  --page-bg: #fdf1e7;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   Navbar
+   ========================= */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #152c58;
-    color: white;
-    position: fixed; /* Garder le Navbar fixé en haut */
-    left: 250px; /* Démarrer après le sidebar qui a une largeur de 250px */
-    top: 0; /* Supprimer la marge en haut */
-    width: calc(100% - 250px); /* Prendre tout l'espace disponible à droite du Sidebar */
-    box-sizing: border-box;
-    z-index: 10; /* S'assurer que le Navbar soit au-dessus du contenu */
-  }
-  
-  .navbar-left input {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    width: 250px;
-  }
-  
-  .navbar-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-grow: 1; /* Permet de faire prendre tout l'espace restant à la droite */
-  }
-  
-  .navbar-icon {
-    margin-right: 15px;
-    flex-shrink: 0; /* Empêche l'icône de se rétrécir */
-  }
-  
-  .bell-icon {
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  .navbar-avatar {
-    display: flex;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-    flex-shrink: 0; /* Empêche l'avatar de se rétrécir */
-  }
-  
-  .user-icon {
-    font-size: 2rem;
-    margin-right: 10px;
-  }
-  
-  .admin-name {
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-  
-  .user-menu {
-    position: absolute;
-    top: 30px;
-    right: 0;
-    background-color: #fff;
-    color: #333;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 200px;
-  }
-  
-  .user-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .user-menu ul li {
-    padding: 8px 0;
-    cursor: pointer;
-  }
-  
-  .user-menu ul li:hover {
-    background-color: #f1f1f1;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--navbar-height);
+  width: 100%;
+  background: var(--page-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 calc(var(--sidebar-width) + 20px);
+  box-shadow: none;
+  z-index: 900;
+}
+
+/* ==== Left side ==== */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  margin-left: 89px;
+  gap: 20px;
+}
+
+.navbar-title {
+  font-size: 1.50rem;
+  font-weight: 600;
+  color: #1f2937;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-icon {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.navbar-search {
+  width: 300px;
+  padding: 10px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+}
+
+/* ==== Right side ==== */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transform: translateX(-10px); /* <— décale tout vers la gauche de 10px */
+}
+
+/* ==== Notifications ==== */
+.notif-container { position: relative; }
+.bell-wrapper { position: relative; }
+.bell-icon { font-size: 1.5rem; cursor: pointer; }
+.notif-badge {
+  position: absolute;
+  top: -5px; right: -5px;
+  width: 10px; height: 10px;
+  background: red; border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+.notif-dropdown {
+  position: absolute;
+  top: calc(var(--navbar-height) + 8px);
+  right: 0;
+  background: #fff;
+  box-shadow: 0 4px 12px var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 240px;
+  z-index: 1000;
+}
+.notif-dropdown ul { list-style: none; margin: 0; padding: 0; }
+.notif-dropdown li {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.notif-dropdown li:hover { background: #f4f4f4; }
+.notif-dropdown li:last-child { border-bottom: none; }
+
+/* ==== Avatar & Admin menu ==== */
+.navbar-avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.avatar-input { display: none; }
+.avatar-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  transition: box-shadow 0.2s;
+}
+.avatar-wrapper:hover { box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+.avatar-placeholder { font-size: 1.5rem; color: #4b5563; }
+.avatar-img { width: 100%; height: 100%; object-fit: cover; }
+
+.admin-name-dropdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.admin-name {
+  margin-left: 8px;
+  font-weight: bold;
+  color: #1f2937;
+}
+.dropdown-arrow {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.user-menu {
+  position: absolute;
+  top: 45px;
+  right: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+}
+.user-menu ul { list-style: none; margin: 0; padding: 0; }
+.user-menu li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.user-menu li:hover { background: #f4f4f4; }
+.notif-container {
+  position: relative;
+  margin-right: 20px;
+}
+
+.bell-wrapper {
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+}
+
+.notif-badge {
+  position: absolute;
+  top: -5px; /* Ajustez cette valeur si nécessaire */
+  right: -5px; /* Ajustez cette valeur si nécessaire */
+  background: rgb(255, 128, 0);
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  font-weight: bold; /* Nombre un peu plus gras */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrer le texte verticalement et horizontalement */
+  width: 24px; /* Ajustez cette valeur pour que le badge soit assez grand */
+  height: 24px; /* Ajustez cette valeur pour que le badge soit assez grand */
+  text-align: center;
+}
+
+.notif-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.notif-dropdown li.unread {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}

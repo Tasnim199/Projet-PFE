@@ -1,0 +1,107 @@
+/* Page */
+.teacher-login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #d4fc79, #96e6a1); /* 💚 Vert pastel */
+    padding: 20px;
+  }
+  
+  /* Carte */
+  .teacher-login-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+    max-width: 1200px;
+    min-height: 600px;
+  }
+  
+  /* Partie image */
+  .teacher-login-image {
+    flex: 1;
+    background: #f0f0f0;
+  }
+  .teacher-login-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Partie formulaire */
+  .teacher-login-form {
+    flex: 1;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .teacher-login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #2e7d32; /* 💚 Vert plus foncé */
+    font-size: 32px;
+  }
+  
+  /* Inputs */
+  .input-group {
+    margin-bottom: 25px;
+  }
+  .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+  }
+  .input-group input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  .input-group input:focus {
+    outline: none;
+    border-color: #4caf50;
+  }
+  
+  /* Bouton */
+  .login-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #43cea2, #185a9d);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s;
+  }
+  .login-button:hover {
+    background: linear-gradient(to right, #2e8b57, #1e4d2b);
+  }
+  
+  /* Liens */
+  .links {
+    margin-top: 25px;
+    text-align: center;
+  }
+  .links a {
+    display: inline-block;
+    margin: 8px 10px;
+    color: #388e3c;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .links a:hover {
+    text-decoration: underline;
+  }
+  

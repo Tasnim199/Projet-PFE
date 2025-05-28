@@ -1,0 +1,146 @@
+/* ManageExercices.css */
+.mng-exercices-page-container {
+  display: flex;
+  min-height: 100vh;
+  background: #d7f4d2;
+  margin-left: 15px;
+}
+
+.mng-exercices-content {
+  flex: 1;
+  padding: 2rem;
+  padding-top: 100px;
+  padding-left: 270px;
+  box-sizing: border-box;
+}
+
+.mng-exercices-title {
+  text-align: center;
+  color: #030535;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #121889;
+  padding-bottom: 0.5rem;
+  width: fit-content;
+  margin: 0 auto 2rem;
+}
+
+.mng-exercices-no-data {
+  text-align: center;
+  color: #555;
+}
+
+.mng-exercices-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(18,24,137,0.1);
+  border: 2px solid #121889;
+}
+
+.mng-exercices-table th,
+.mng-exercices-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.mng-exercices-table th {
+  background: linear-gradient(135deg, #030535, #0f126a);
+  color: #fff;
+}
+
+.mng-exercices-actions .mng-exercices-btn-view,
+.mng-exercices-actions .mng-exercices-btn-edit,
+.mng-exercices-actions .mng-exercices-btn-delete {
+  margin: 4px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.mng-exercices-btn-view {
+  background: #66bb6a; color: #fff; border: none;
+}
+.mng-exercices-btn-view:hover { background: #43a047; transform: translateY(-2px); }
+
+.mng-exercices-btn-edit {
+  background: #66bb6a; color: #fff; border: none;
+}
+.mng-exercices-btn-edit:hover { background: #43a047; transform: translateY(-2px); }
+
+.mng-exercices-btn-delete {
+  background: #e53935; color: #fff; border: none;
+}
+.mng-exercices-btn-delete:hover { background: #d32f2f; transform: translateY(-2px); }
+
+.mng-exercices-scroll {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.mng-exercices-modal-header,
+.mng-exercices-modal-header-edit {
+  position: relative;
+  padding: 16px 30px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.mng-exercices-modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.mng-exercices-modal-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.mng-exercices-modal-body {
+  padding: 20px 30px;
+}
+
+.mng-exercices-form-group { margin-bottom: 1rem; }
+.mng-exercices-form-label { font-weight: 500; }
+.mng-exercices-form-control { border-radius: 5px; }
+
+.mng-exercices-question-block,
+.mng-exercices-question-edit { margin-bottom: 1rem; }
+
+.mng-exercices-modal-footer {
+  padding: 16px 30px;
+  border-top: 1px solid #e5e5e5;
+  text-align: right;
+  display: flex;
+  gap: 8px;
+}
+
+.mng-exercices-btn-cancel,
+.mng-exercices-btn-save {
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+}
+
+.mng-exercices-btn-cancel { background: #757575; }
+.mng-exercices-btn-cancel:hover { background: #616161; }
+
+.mng-exercices-btn-save { background: #121889; }
+.mng-exercices-btn-save:hover { background: #0f126a; }
+
+@media (max-width: 768px) {
+  .mng-exercices-content { padding-left: 1rem; padding-top: 120px; }
+  .mng-exercices-table { font-size: 0.85rem; }
+  .mng-exercices-actions button { padding: 6px 10px; }
+}

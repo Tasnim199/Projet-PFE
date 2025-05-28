@@ -1,0 +1,156 @@
+/* TeacherProfile.css */
+.teacher-page-container {
+  display: flex;
+  min-height: 100vh;
+  background: #D7F4D2;
+}
+
+.teacher-cont-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: 270px;  /* sidebar 250 + gap 20 */
+  margin-top: 84px;   /* navbar 64 + gap 20 */
+  box-sizing: border-box;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1d3557;
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.profile-card {
+  background: #f9fff7;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #66bb6a, #43a047) 1;
+  max-width: 720px;
+  padding: 32px;
+  margin: 0 auto 24px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.field .label {
+  font-weight: 500;
+  color: #1d3557;
+}
+
+.field .value {
+  font-weight: 600;
+  color: #333;
+}
+
+.btn-modif {
+  width: 100%;
+  margin-top: 16px;
+  background: linear-gradient(135deg, #66bb6a, #43a047);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-modif:hover {
+  background: linear-gradient(135deg, #43a047, #66bb6a);
+  transform: translateY(-2px);
+}
+
+.loading {
+  padding: 20px;
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Modal overrides */
+.custom-modal-dialog {
+  max-width: 600px;
+}
+
+.custom-modal-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border: 2px solid #66bb6a;
+}
+
+.custom-modal-content .form-control {
+  border-radius: 6px;
+}
+/* Centrer et dimensionner le Modal (React-Modal) */
+.ReactModal__Content {
+  max-width: 500px !important;
+  width: 90% !important;
+  max-height: 80vh !important;
+  margin: 100px auto !important;   /* 100px sous le haut de page */
+  padding: 0 !important;            /* on gère le padding dans nos classes */
+  overflow: hidden !important;
+}
+
+/* Corps du modal défilant si besoin */
+.custom-modal-content {
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+.custom-modal-body {
+  max-height: calc(80vh - 140px); /* header+footer = 140px */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* En-tête avec croix */
+.custom-modal-header {
+  position: relative;
+  padding: 16px 40px 16px 30px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.custom-modal-header .modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.custom-modal-header .btn-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Pied de modal */
+.custom-modal-footer {
+  padding: 16px 30px;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Bouton enregistrer (vert) */
+.custom-modal-footer .btn-success {
+  background: linear-gradient(135deg, #66bb6a, #43a047) !important;
+  border: none !important;
+}
+.custom-modal-footer .btn-secondary {
+  border-radius: 6px;
+}
+
+/* Assure le wrapper général */
+.custom-modal-dialog {
+  margin: 0; /* géré par ReactModal__Content */
+}

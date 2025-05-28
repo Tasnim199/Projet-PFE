@@ -1,48 +1,70 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import Sidebar from './Sidebar';
 import './Sidebar.css';
+import './TeachersDash.css';
+import { SearchContext } from '../SearchContext';
 
 const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { searchQuery } = useContext(SearchContext);
 
+  // Récupération des enseignants
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       axios.get('http://localhost:5000/admin/teachers', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       })
-        .then((response) => {
-          setTeachers(response.data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Erreur lors de la récupération des enseignants:", error);
-          setLoading(false);
-        });
+      .then(res => {
+        setTeachers(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Erreur récup enseignants:", err);
+        setLoading(false);
+      });
+    } else {
+      setLoading(false);
     }
   }, []);
 
-  const handleStatusChange = (teacherId, status) => {
+  // Fonction pour basculer le statut
+  const toggleStatus = (teacherId, currentStatus) => {
+    const newStatus = currentStatus === 'validé' ? 'bloqué' : 'validé';
+    const confirmMsg = currentStatus === 'validé'
+      ? "Voulez-vous vraiment bloquer cet enseignant ?"
+      : "Voulez-vous activer cet enseignant ?";
+    if (!window.confirm(confirmMsg)) return;
+
     const token = localStorage.getItem('token');
-    axios.put(`http://localhost:5000/admin/teachers/${teacherId}/status`, { status }, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+    axios.put(
+      `http://localhost:5000/admin/teachers/${teacherId}/status`,
+      { status: newStatus },
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+    .then(() => {
+      setTeachers(prev =>
+        prev.map(t =>
+          t._id === teacherId ? { ...t, status: newStatus } : t
+        )
+      );
     })
-      .then(response => {
-        setTeachers(teachers.map(teacher =>
-          teacher._id === teacherId ? { ...teacher, status: response.data.status } : teacher
-        ));
-        console.log('Statut mis à jour:', response.data);
-      })
-      .catch(error => {
-        console.error("Erreur lors de la mise à jour du statut de l'enseignant:", error);
-      });
+    .catch(err => console.error("Erreur mise à jour statut:", err));
   };
+
+  // Filtre global
+  const filtered = teachers.filter(t => {
+    const text = `
+      ${t.name} ${t.prenom}
+      ${t.email}
+      ${t.schoolName}
+      ${t.city}
+      ${t.status}
+    `.toLowerCase();
+    return text.includes(searchQuery.toLowerCase());
+  });
 
   return (
     <div className="teachers-page">
@@ -56,33 +78,26 @@ const Teachers = () => {
             <table>
               <thead>
                 <tr>
-                  <th>Nom de l'enseignant</th>
-                  <th>Email</th>
-                  <th>Niveau enseigné</th>
-                  <th>Nom de l'école primaire</th>
-                  <th>Ville</th>
-                  <th>Statut</th>
-                  <th>Actions</th>
+                  <th>Nom</th><th>Prénom</th><th>Email</th>
+                  <th>École</th><th>Ville</th><th>Statut</th><th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {teachers.map((teacher) => (
+                {filtered.map(teacher => (
                   <tr key={teacher._id}>
                     <td>{teacher.name}</td>
+                    <td>{teacher.prenom}</td>
                     <td>{teacher.email}</td>
-                    <td>{teacher.grade}</td>
                     <td>{teacher.schoolName}</td>
                     <td>{teacher.city}</td>
                     <td>{teacher.status}</td>
                     <td>
-                      {teacher.status === 'pending' ? (
-                        <>
-                          <button onClick={() => handleStatusChange(teacher._id, 'valider')}>Valider </button>
-                          <button onClick={() => handleStatusChange(teacher._id, 'rejeter')}>Rejeter</button>
-                        </>
-                      ) : (
-                        <span>{teacher.status}</span>
-                      )}
+                      <button
+                        className={teacher.status === 'validé' ? 'btn-block' : 'btn-activate'}
+                        onClick={() => toggleStatus(teacher._id, teacher.status)}
+                      >
+                        {teacher.status === 'validé' ? 'Bloquer' : 'Activer'}
+                      </button>
                     </td>
                   </tr>
                 ))}

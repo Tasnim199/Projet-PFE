@@ -1,0 +1,198 @@
+/* =========================
+   Global Reset
+   ========================= */
+   html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #fdf1e7;
+    font-family: 'Poppins', sans-serif;
+    color: #1f2937;
+  }
+  
+  /* =========================
+     Layout
+     ========================= */
+  .contenu-page {
+    display: flex;
+    min-height: 100vh;
+    background: #fdf1e7;
+  }
+  
+  .contenu-container {
+  margin-top: 80px;
+    flex: 1;
+ 
+    margin-left: 250px;
+    margin-bottom: 15px;
+    padding: 2rem;
+    background: #fdf1e7;
+  
+  }
+  
+  .contenu-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #ff9244;
+  }
+  
+  /* Entête spécifique */
+  .contenu-header {
+    background: linear-gradient(145deg, #ff7e5f, #feb47b);
+    color: #fff;
+    padding: 1.2rem 1.5rem;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contenu-header:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* =========================
+     Level Cards
+     ========================= */
+  .contenu-levels-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .contenu-level-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  
+  .contenu-level-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .contenu-level-card-header {
+    background: linear-gradient(135deg, #f4a261, #ffb366);
+    padding: 1rem;
+  }
+  
+  .contenu-level-card-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.25rem;
+  }
+  
+  .contenu-level-card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* =========================
+     Module Sections
+     ========================= */
+  .contenu-module-card {
+    background: #fdf1e7;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.75rem;
+    transition: background 0.2s ease;
+  }
+  
+  .contenu-module-card:hover {
+    background: rgba(0, 0, 0, 0.03);
+  }
+  
+  .contenu-module-card-header h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #4b5563;
+  }
+  
+  /* =========================
+     Category & Content List
+     ========================= */
+  .contenu-category-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contenu-category-item {
+    margin-bottom: 0.75rem;
+  }
+  
+  .contenu-category-item h5 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: #4b5563;
+  }
+  
+  .contenu-content-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 1rem;
+  }
+  
+  .contenu-content-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .contenu-content-item:last-child {
+    border-bottom: none;
+  }
+  
+  .contenu-content-title {
+    flex: 1;
+    font-size: 0.95rem;
+  }
+  
+  .contenu-content-meta {
+    font-size: 0.85rem;
+    color: #4b5563;
+    margin: 0 1rem;
+  }
+  
+  /* =========================
+     Buttons
+     ========================= */
+  .contenu-btn-consult {
+    background: linear-gradient(135deg, #ff9244, #ffb366);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s ease;
+  }
+  
+  .contenu-btn-consult:hover {
+    background: linear-gradient(135deg, #ffb366, #ff9244);
+  }
+  
+  /* =========================
+     Responsive
+     ========================= */
+  @media (max-width: 768px) {
+    .contenu-container {
+      margin-left: 0;
+      padding: 1rem;
+    }
+    .contenu-levels-wrapper {
+      flex-direction: column;
+    }
+  }

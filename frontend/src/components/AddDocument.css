@@ -1,0 +1,54 @@
+/* src/components/AddDocument.css */
+.add-doc-container {
+    padding: 2rem;
+    padding-top: 100px;
+    background-color: #d7f4d2;
+    min-height: 100vh;
+  }
+  .add-doc-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #121889;
+    padding-bottom: 0.5rem;
+    width: fit-content;
+    margin: 0 auto 2rem;
+    color: #030535;
+  }
+  .add-doc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(18,24,137,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #121889;
+  }
+  .add-doc-field { display: flex; flex-direction: column; }
+  .add-doc-label { margin-bottom: 6px; font-weight: 600; color: #34495e; }
+  .add-doc-input, .add-doc-select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  .add-doc-input:focus, .add-doc-select:focus { border-color: #3498db; outline: none; }
+  .add-doc-button {
+    background: #66bb6a;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .add-doc-button:hover { background: #43a047; transform: translateY(-2px); }
+  @media (max-width: 768px) {
+    .add-doc-container { padding-left: 1rem; padding-top: 120px; }
+    .add-doc-form { font-size: 0.85rem; }
+    .add-doc-button { padding: 6px 10px; }
+  }
